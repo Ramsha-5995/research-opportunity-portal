@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Research Opportunity Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>University Research Opportunity Portal</h1>
+    <button id="newOpportunityBtn">+ Post New Opportunity</button>
+</header>
+
+<div id="messageBox" class="message hidden"></div>
+
+<main>
+    <!-- List View -->
+    <section id="listView">
+        <div id="opportunitiesList" class="grid"></div>
+    </section>
+
+    <!-- Detail View -->
+    <section id="detailView" class="hidden">
+        <button class="backBtn" onclick="showListView()">&larr; Back to list</button>
+        <div id="detailContent" class="card"></div>
+    </section>
+
+    <!-- Form View (Create / Update) -->
+    <section id="formView" class="hidden">
+        <button class="backBtn" onclick="showListView()">&larr; Cancel</button>
+        <h2 id="formTitle">Post a New Research Opportunity</h2>
+        <form id="opportunityForm">
+            <input type="hidden" id="opportunityId">
+
+            <label>Research Title *</label>
+            <input type="text" id="title" required>
+
+            <label>Research Description *</label>
+            <textarea id="description" rows="4" required></textarea>
+
+            <label>Research Area *</label>
+            <input type="text" id="research_area" required>
+
+            <label>Faculty Member's Name *</label>
+            <input type="text" id="faculty_name" required pattern="[A-Za-z][A-Za-z .'\-]*" title="Name can only contain letters, spaces, dots, apostrophes, and hyphens">
+
+            <label>Department *</label>
+            <input type="text" id="department" required>
+
+            <label>Required Skills *</label>
+            <input type="text" id="required_skills" placeholder="e.g. Python, Data Analysis" required>
+
+            <label>Number of Available Positions *</label>
+            <input type="number" id="available_positions" min="0" required>
+
+            <label>Application Deadline *</label>
+            <input type="date" id="application_deadline" required>
+
+            <label>Status</label>
+            <select id="status">
+                <option value="Open">Open</option>
+                <option value="Closed">Closed</option>
+            </select>
+
+            <button type="submit" id="submitBtn">Save Opportunity</button>
+        </form>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
