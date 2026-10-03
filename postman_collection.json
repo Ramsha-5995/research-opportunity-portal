@@ -1,0 +1,113 @@
+{
+  "info": {
+    "name": "Research Opportunity Portal API",
+    "description": "Collection covering CRUD operations, status change, 404, and validation testing for the Research Opportunity Portal API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000/api/opportunities" },
+    { "key": "opportunityId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1. Create Opportunity - #1",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"AI in Healthcare Diagnostics\",\n  \"description\": \"Research on using AI models for early disease diagnosis.\",\n  \"research_area\": \"Artificial Intelligence\",\n  \"faculty_name\": \"Dr. Sara Malik\",\n  \"department\": \"Computer Science\",\n  \"required_skills\": \"Python, Deep Learning\",\n  \"available_positions\": 2,\n  \"application_deadline\": \"2026-12-01\",\n  \"status\": \"Open\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+      }
+    },
+    {
+      "name": "2. Create Opportunity - #2",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Blockchain for Supply Chain\",\n  \"description\": \"Investigating blockchain use for transparent supply chains.\",\n  \"research_area\": \"Blockchain\",\n  \"faculty_name\": \"Dr. Imran Yousaf\",\n  \"department\": \"Software Engineering\",\n  \"required_skills\": \"Solidity, Node.js\",\n  \"available_positions\": 1,\n  \"application_deadline\": \"2026-11-20\",\n  \"status\": \"Open\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+      }
+    },
+    {
+      "name": "3. Create Opportunity - #3",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Wireless Sensor Networks for Agriculture\",\n  \"description\": \"Design low-power sensor networks for smart farming.\",\n  \"research_area\": \"IoT\",\n  \"faculty_name\": \"Dr. Hina Tariq\",\n  \"department\": \"Electrical Engineering\",\n  \"required_skills\": \"Embedded C, IoT Protocols\",\n  \"available_positions\": 3,\n  \"application_deadline\": \"2026-12-10\",\n  \"status\": \"Open\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+      }
+    },
+    {
+      "name": "4. Get All Opportunities",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+      }
+    },
+    {
+      "name": "5. Get One Opportunity By ID",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/{{opportunityId}}", "host": ["{{baseUrl}}"], "path": ["{{opportunityId}}"] }
+      }
+    },
+    {
+      "name": "6. Update Opportunity",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"available_positions\": 5,\n  \"required_skills\": \"Python, Deep Learning, NLP\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/{{opportunityId}}", "host": ["{{baseUrl}}"], "path": ["{{opportunityId}}"] }
+      }
+    },
+    {
+      "name": "7. Change Status to Closed",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Closed\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/{{opportunityId}}", "host": ["{{baseUrl}}"], "path": ["{{opportunityId}}"] }
+      }
+    },
+    {
+      "name": "8. Delete Opportunity",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "{{baseUrl}}/{{opportunityId}}", "host": ["{{baseUrl}}"], "path": ["{{opportunityId}}"] }
+      }
+    },
+    {
+      "name": "9. Get Deleted Opportunity (Expect 404)",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/{{opportunityId}}", "host": ["{{baseUrl}}"], "path": ["{{opportunityId}}"] }
+      }
+    },
+    {
+      "name": "10. Create Opportunity - Invalid Data (Expect 400)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"\",\n  \"description\": \"Missing required fields test\",\n  \"available_positions\": -3\n}"
+        },
+        "url": { "raw": "{{baseUrl}}", "host": ["{{baseUrl}}"] }
+      }
+    }
+  ]
+}
