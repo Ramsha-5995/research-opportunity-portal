@@ -2,9 +2,7 @@
 
 A full-stack web application that lets faculty members post, view, update, and manage research opportunities in one place, replacing scattered emails, WhatsApp groups, and noticeboards.
 
-**GitHub Repository:** https://github.com/YOUR_USERNAME/research-opportunity-portal
-*(Replace this link with your actual repository URL before submitting.)*
-
+**GitHub Repository:** **GitHub Repository:** https://github.com/Ramsha-5995/research-opportunity-portal
 ## Tech Stack
 
 - **Backend:** Node.js + Express.js
